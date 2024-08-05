@@ -12,7 +12,6 @@ app.use(cors({
 app.use(router)
 
 router.post('/auth', (req: Request, res: Response) => {
-    console.log(req.body)
     return res.json({ token: '123456', name: 'Talles Amaral', username: 'talles.amaral', id: 'adfasdfa-asdfadsf' })
 })
 
