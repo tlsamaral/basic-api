@@ -1,5 +1,5 @@
 import express, { Router, Request, Response } from "express"
-import cors from 'cors';
+import cors from 'cors'
 const app = express()
 const port = 3333
 const router = Router()
@@ -17,16 +17,16 @@ router.post('/auth', (req: Request, res: Response) => {
 })
 
 router.post('/session', (req: Request, res: Response) => {
-    const authToken = req.headers.authorization;
+    const authToken = req.headers.authorization
     
     if (!authToken) {
-        return res.status(401).end();
+        return res.status(401).end()
     }
 
-    const [, token] = authToken.split(' ');
+    const [, token] = authToken.split(' ')
 
     if(token !== "123456") {
-        return res.status(401).json({ ok: false });
+        return res.status(401).json({ ok: false })
     }
 
     return res.json({ ok: true })
@@ -34,4 +34,4 @@ router.post('/session', (req: Request, res: Response) => {
 
 app.listen(port, () => {
     console.log(`🔥 Server is running on http://localhost:${port}`)
-});
+})
